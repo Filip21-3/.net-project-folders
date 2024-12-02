@@ -1,0 +1,28 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMyRF.Pages.LogoPage"
+             BackgroundImageSource="myrback2.png">
+    <Grid Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <ScrollView>
+            <StackLayout Spacing="30">
+                <!-- Logo Placeholder -->
+
+
+                <!-- Button to continue -->
+                <Button Text="Let's Go"
+        TextColor="White"
+        BackgroundColor="Black"
+        Command="{Binding NavigateToLoginCommand}"
+        HorizontalOptions="Center"
+        WidthRequest="400"
+                    HeightRequest="60"
+        CornerRadius="20"
+                    Margin="0,350,0,0" 
+                    FontFamily="Arial"
+                    FontAttributes="Bold"
+        Clicked="OnButtonClicked">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

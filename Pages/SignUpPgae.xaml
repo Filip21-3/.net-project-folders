@@ -1,0 +1,81 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMyRF.Pages.SignUpPage"
+             BackgroundImageSource="myrbg.png"
+             Title="Sign Up">
+    <ScrollView>
+        <Grid Padding="20" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Back Button -->
+            <Button Text="Back"
+                FontSize="Medium"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                VerticalOptions="Start"
+                Clicked="OnBackClicked"/>
+
+            <!-- Sign Up Form -->
+            <StackLayout Grid.Row="1" Spacing="20">
+                <Label Text="Sign up" FontSize="Large" FontAttributes="Bold"/>
+
+                <!-- Email Entry with rounded corners -->
+                <Frame CornerRadius="5" Padding="0" BorderColor="White" HasShadow="False">
+                    <Entry Placeholder="Email Address"
+                       Keyboard="Email"
+                       BackgroundColor="Transparent"/>
+                </Frame>
+
+                <!-- Full Name Entry with rounded corners -->
+                <Frame CornerRadius="5" Padding="0" BorderColor="White" HasShadow="False">
+                    <Entry Placeholder="Full Name"
+                       BackgroundColor="Transparent"/>
+                </Frame>
+
+                <!-- Mobile Number Entry with rounded corners -->
+                <Frame CornerRadius="5" Padding="0" BorderColor="White" HasShadow="False">
+                    <Entry x:Name="MobileNumberEntry" Placeholder="Mobile Number"
+                       Keyboard="Telephone"
+                       BackgroundColor="Transparent"/>
+                </Frame>
+
+                <!-- Country Code Picker -->
+                <Picker x:Name="CountryCodePicker"
+                    Title="Select Country Code"
+                    SelectedIndexChanged="OnCountryCodeChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>+386 Slovenia</x:String>
+                            <x:String>+381 Serbia</x:String>
+                            <x:String>+385 Croatia</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <!-- Terms and Conditions Label -->
+                <Label Text="By signing up, you agree to our Terms Conditions and Privacy Policy."
+                   FontSize="Small"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+
+                <!-- Continue Button -->
+                <Button Text="Continue"
+                    TextColor="White"
+                    BackgroundColor="Black"
+                    CornerRadius="20"/>
+
+                <!-- Login Redirect Button -->
+                <Button Text="Already have an account? Log in"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   BackgroundColor="Transparent"
+                   FontAttributes="Italic"
+                   Clicked="OnLoginButtonClicked"/>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

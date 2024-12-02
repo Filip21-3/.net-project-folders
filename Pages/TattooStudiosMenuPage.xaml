@@ -1,0 +1,47 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMyRF.Pages.TattooStudiosMenuPage"
+             Title="Tattoo Studios">
+
+    <ContentPage.BackgroundImageSource>
+        <FileImageSource File="myrbg.png" />
+    </ContentPage.BackgroundImageSource>
+
+    <ContentPage.Resources>
+        <Style x:Key="SectionLabelStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="Margin" Value="10,5,0,0" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="20">
+            <!-- Title Section -->
+            <Label Text="Tattoo Studios" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <!-- List of Tattoo Studios -->
+            <CollectionView x:Name="TattooStudiosList" ItemsSource="{Binding TattooStudios}" Margin="10">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" CornerRadius="15" BorderColor="#ddd" BackgroundColor="#fff" HasShadow="True">
+                            <Frame.Shadow>
+                                <Shadow Brush="Gray" Offset="2,2" Radius="5" Opacity="0.5"/>
+                            </Frame.Shadow>
+                            <VerticalStackLayout>
+                                <Image Source="{Binding ImageUrl}" HeightRequest="150" Aspect="AspectFill" />
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium" HorizontalTextAlignment="Center" />
+                                <Label Text="{Binding Location}" FontSize="Small" TextColor="Gray" HorizontalTextAlignment="Center" />
+                                <Label Text="{Binding Rating}" FontSize="Small" TextColor="Black" HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

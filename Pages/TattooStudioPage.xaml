@@ -1,0 +1,43 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMyRF.Pages.TattooStudioPage"
+             Title="Tattoo Studio">
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Studio Information -->
+            <Image Source="tattoo_studio.jpg" HeightRequest="200" HorizontalOptions="Center" Aspect="AspectFill" />
+            <Label Text="Welcome to Inkfinity Tattoo Studio!" 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" />
+
+            <Label Text="At Inkfinity, we pride ourselves on creating unique and meaningful tattoos that you'll cherish forever. Our artists specialize in a variety of styles to suit your needs."
+                   FontSize="Medium"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center" />
+
+            <Label Text="Studio Address: 123 Tattoo Lane, Art City"
+                   FontSize="Medium"
+                   FontAttributes="Italic"
+                   HorizontalOptions="Center" />
+
+            <Label Text="Working Hours: 10 AM - 8 PM (Mon-Sun)"
+                   FontSize="Medium"
+                   FontAttributes="Italic"
+                   HorizontalOptions="Center" />
+
+            <!-- Book Appointment Button -->
+            <Button Text="Book Appointment" 
+                    FontSize="Medium" 
+                    BackgroundColor="DarkRed" 
+                    TextColor="White" 
+                    CornerRadius="10"
+                    HorizontalOptions="Center"
+                    VerticalOptions="EndAndExpand"
+                    Clicked="OnAppointmentButtonClicked" />
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

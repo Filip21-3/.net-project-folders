@@ -1,0 +1,176 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMyRF.Pages.MainMenuPage"
+             Title="Main Menu">
+    <ContentPage.BackgroundImageSource>
+        <!-- Background image for the page -->
+        <FileImageSource File="myrbg.png" />
+    </ContentPage.BackgroundImageSource>
+
+    <ContentPage.Resources>
+        <Style x:Key="SectionLabelStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="Margin" Value="10,5,0,0" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="0" Spacing="20">
+            <!-- Top Section: User Info and Profile Button -->
+            <Grid BackgroundColor="Transparent" Padding="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout>
+                    <Label Text="Welcome, User!" FontSize="Large" FontAttributes="Bold" />
+                    <HorizontalStackLayout>
+                        <Image Source="location_icon.png" WidthRequest="20" HeightRequest="20" />
+                        <Label Text="Maribor, Slovenia" VerticalOptions="Center" FontSize="Small" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <!-- Profile Picture Button -->
+                <ImageButton Source="profile.jpg"
+                             WidthRequest="50" 
+                             HeightRequest="50"
+                             Aspect="AspectFill"
+                             CornerRadius="25"
+                             BackgroundColor="Transparent"
+                             Grid.Column="1"
+                             Clicked="OnProfileClicked" />
+            </Grid>
+
+            <!-- Search Bar -->
+            <SearchBar x:Name="SearchBar" Placeholder="Search for something special!" />
+
+            <!-- Categories Section with Horizontal Scrolling -->
+            <Label Text="Looking For" Style="{StaticResource SectionLabelStyle}" />
+            <!-- Horizontal ScrollView for Categories -->
+            <ScrollView Orientation="Horizontal" Padding="10">
+                <HorizontalStackLayout Spacing="15">
+                    <!-- Tattoo Category -->
+                    <Frame CornerRadius="15" BackgroundColor="#eef" Padding="15" HasShadow="True">
+                        <Frame.Shadow>
+                            <Shadow Brush="Gray" Offset="2,2" Radius="5" Opacity="0.5"/>
+                        </Frame.Shadow>
+                        <VerticalStackLayout>
+                            <ImageButton Source="tattoo.jpg"
+                                         WidthRequest="200"
+                                         HeightRequest="200"
+                                         Clicked="OnTattooCategoryClicked" 
+                                         Aspect="AspectFill" />
+                            <Label Text="Tattoo Studios" 
+                                   FontSize="Small" 
+                                   HorizontalTextAlignment="Center" 
+                                   VerticalTextAlignment="Center" 
+                                   TextColor="Black" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Restaurant Category -->
+                    <Frame CornerRadius="15" BackgroundColor="#eef" Padding="15" HasShadow="True">
+                        <Frame.Shadow>
+                            <Shadow Brush="Gray" Offset="2,2" Radius="5" Opacity="0.5"/>
+                        </Frame.Shadow>
+                        <VerticalStackLayout>
+                            <ImageButton Source="restaurant.jpg"
+                                         WidthRequest="200"
+                                         HeightRequest="200"
+                                         Clicked="OnRestaurantCategoryClicked" 
+                                         Aspect="AspectFill" />
+                            <Label Text="Restaurants" 
+                                   FontSize="Small" 
+                                   HorizontalTextAlignment="Center" 
+                                   VerticalTextAlignment="Center" 
+                                   TextColor="Black" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Bars Category -->
+                    <Frame CornerRadius="15" BackgroundColor="#eef" Padding="15" HasShadow="True">
+                        <Frame.Shadow>
+                            <Shadow Brush="Gray" Offset="2,2" Radius="5" Opacity="0.5"/>
+                        </Frame.Shadow>
+                        <VerticalStackLayout>
+                            <ImageButton Source="bar.jpg"
+                                         WidthRequest="200"
+                                         HeightRequest="200"
+                                         Clicked="OnBarCategoryClicked" 
+                                         Aspect="AspectFill" />
+                            <Label Text="Bars" 
+                                   FontSize="Small" 
+                                   HorizontalTextAlignment="Center" 
+                                   VerticalTextAlignment="Center" 
+                                   TextColor="Black" />
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Barber Category -->
+                    <Frame CornerRadius="15" BackgroundColor="#eef" Padding="15" HasShadow="True">
+                        <Frame.Shadow>
+                            <Shadow Brush="Gray" Offset="2,2" Radius="5" Opacity="0.5"/>
+                        </Frame.Shadow>
+                        <VerticalStackLayout>
+                            <ImageButton Source="barber.jpg"
+                                         WidthRequest="200"
+                                         HeightRequest="200"
+                                         Clicked="OnBarberCategoryClicked" 
+                                         Aspect="AspectFill" />
+                            <Label Text="Barbers" 
+                                   FontSize="Small" 
+                                   HorizontalTextAlignment="Center" 
+                                   VerticalTextAlignment="Center" 
+                                   TextColor="Black" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </HorizontalStackLayout>
+            </ScrollView>
+
+            <!-- Popular Items Section -->
+            <Label Text="Popular Near You" Style="{StaticResource SectionLabelStyle}" />
+            <CollectionView x:Name="PopularItems" ItemsSource="{Binding PopularPlaces}" Margin="10">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" CornerRadius="15" BorderColor="#ddd" BackgroundColor="#fff" HasShadow="True">
+                            <Frame.Shadow>
+                                <Shadow Brush="Gray" Offset="2,2" Radius="5" Opacity="0.5"/>
+                            </Frame.Shadow>
+                            <VerticalStackLayout>
+                                <Image Source="{Binding ImageUrl}" HeightRequest="100" Aspect="AspectFill" />
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium" />
+                                <Label Text="{Binding Distance}" FontSize="Small" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Top Rated Section -->
+            <Label Text="Top Rated" Style="{StaticResource SectionLabelStyle}" />
+            <CollectionView x:Name="TopRatedItems" ItemsSource="{Binding TopRatedPlaces}" Margin="10">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" CornerRadius="15" BorderColor="#ddd" BackgroundColor="#fff" HasShadow="True">
+                            <Frame.Shadow>
+                                <Shadow Brush="Gray" Offset="2,2" Radius="5" Opacity="0.5"/>
+                            </Frame.Shadow>
+                            <VerticalStackLayout>
+                                <Image Source="{Binding ImageUrl}" HeightRequest="100" Aspect="AspectFill" />
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium" />
+                                <Label Text="{Binding Rating}" FontSize="Small" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

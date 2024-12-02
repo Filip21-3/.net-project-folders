@@ -1,0 +1,40 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMyRF.Pages.ProfilePage"
+             Title="Profile"
+             BackgroundColor="#1a1a1a">
+    <!-- Dark background for better contrast -->
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <!-- Profile Picture Section -->
+                <Grid>
+                    <!-- Profile Background -->
+                    <Image Source="profile_background.png" Aspect="AspectFill" HeightRequest="250" />
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <!-- Profile Picture (Circular with Shadow) -->
+                        <Frame HeightRequest="120" WidthRequest="120" CornerRadius="60" HasShadow="True" BackgroundColor="White">
+                            <Image Source="profile_picture_placeholder.png" Aspect="AspectFill" />
+                        </Frame>
+                        <!-- Profile Name -->
+                        <Label Text="John Doe" FontSize="Large" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- Button Section with Better Spacing & Modern Style -->
+                <VerticalStackLayout Padding="0" Spacing="20">
+                    <!-- Rounded Buttons with Hover Effects -->
+                    <Button Text="History" Style="{StaticResource RoundedButtonStyle}" Clicked="OnHistoryClicked" TextColor="White" BackgroundColor="DarkGreen" />
+                    <Button Text="Personal Details" Style="{StaticResource RoundedButtonStyle}" Clicked="OnPersonalDetailsClicked" TextColor="White" BackgroundColor="DarkGreen" />
+                    <Button Text="Address" Style="{StaticResource RoundedButtonStyle}" Clicked="OnAddressClicked" TextColor="White" BackgroundColor="DarkGreen" />
+                    <Button Text="About" Style="{StaticResource RoundedButtonStyle}" Clicked="OnAboutClicked" TextColor="White" BackgroundColor="DarkGreen" />
+                    <Button Text="Help" Style="{StaticResource RoundedButtonStyle}" Clicked="OnHelpClicked" TextColor="White"  BackgroundColor="DarkGreen"/>
+                    <Button Text="Logout" Style="{StaticResource RoundedButtonStyle}" BackgroundColor="#FF5733" TextColor="White" Clicked="OnLogoutClicked" />
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,45 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMyRF.Pages.MyAppointmentPage"
+             Title="My Appointments">
+    <ContentPage.BackgroundImageSource>
+    <!-- Background image for the page -->
+    <FileImageSource File="bgl.png" />
+</ContentPage.BackgroundImageSource>
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <!-- Month Navigation -->
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button Text="&#x25C0;" TextColor="DarkGreen" FontSize="24" Clicked="OnPreviousMonthClicked" />
+                <Label x:Name="MonthLabel" FontSize="Large" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" />
+                <Button Text="&#x25B6;" TextColor="DarkGreen" FontSize="24" Clicked="OnNextMonthClicked" />
+            </HorizontalStackLayout>
+
+            <!-- Calendar Grid -->
+            <Grid x:Name="CalendarGrid" RowSpacing="5" ColumnSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Days of Week Labels -->
+                <Label Text="Sun" Grid.Column="0" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                <Label Text="Mon" Grid.Column="1" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                <Label Text="Tue" Grid.Column="2" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                <Label Text="Wed" Grid.Column="3" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                <Label Text="Thu" Grid.Column="4" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                <Label Text="Fri" Grid.Column="5" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                <Label Text="Sat" Grid.Column="6" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+            </Grid>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
